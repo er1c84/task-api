@@ -4,8 +4,6 @@ info:
   version: 1.0.0
 
 servers:
-  - url: http://localhost:8080
-    description: Local development server
   - url: https://task-api-service-eorn.onrender.com
     description: Production server
 
