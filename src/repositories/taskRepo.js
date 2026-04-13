@@ -1,12 +1,24 @@
-import prisma from '../config/db.js';
+import prisma from "../config/db.js";
 
-export async function findAll() {
-  return prisma.task.findMany();
+// GET all tasks (with optional filter)
+export async function getAllTasks(completed) {
+  if (completed === undefined) {
+    return prisma.task.findMany();
+  }
+
+  return prisma.task.findMany({
+    where: {
+      completed: completed,
+    },
+  });
 }
 
-// Create a new task
-export async function create(data) {
+// CREATE a task
+export async function createTask(data) {
   return prisma.task.create({
-    data,
+    data: {
+      title: data.title,
+      completed: data.completed ?? false,
+    },
   });
 }

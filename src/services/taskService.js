@@ -1,9 +1,9 @@
-import * as taskRepository from '../repositories/taskRepo.js';
+import * as taskRepo from "../repositories/taskRepo.js";
 
-export async function getAllTasks() {
-  return taskRepository.findAll();
+export async function getAllTasks(completed) {
+  return taskRepo.getAllTasks(completed);
 }
 
-export async function createTask(newTask) {
-  return taskRepository.create(newTask);
+export async function createTask(data) {
+  return taskRepo.createTask(data);
 }
